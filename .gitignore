@@ -1,0 +1,5 @@
+# Ignorera kompilerade filer
+*.class
+
+# Ignorera VSCode-specifika filer
+.vscode/
