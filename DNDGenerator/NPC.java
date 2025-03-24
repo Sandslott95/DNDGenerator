@@ -18,19 +18,22 @@ public class NPC {  // Define the NPC class (blueprint for creating NPC objects)
     // 🔹 **Static Arrays for Random Selection**
     private static String[] genders = {"Male", "Female", "Non-binary"};
     private static String[] ageGroups = {"Young", "Middle-aged", "Old", "Ancient"};
-    private static String[] races = {"Human", "Elf", "Dwarf", "Orc", "Tiefling"};
+    private static final String[] races = {
+        "Human", "Dwarf", "Elf", "Orc", "Dragonborn", "Tiefling", "Halfling", "Gnome"
+    };
+
     private static String[] professions = {"Blacksmith", "Wizard", "Thief", "Bard", "Cleric", "Warrior", "Merchant"};
 
     private static Random rand = new Random();  // Create a Random object to generate random values.
 
-    // 🔹 **Constructor (Runs when a new NPC object is created)**
+    // **Constructor (Runs when a new NPC object is created)**
     public NPC() {
         this.race = races[rand.nextInt(races.length)];  // Selects a random race from the races array.
         this.name = Names.getRandomName(this.race);  // Calls the Names class to generate a race-appropriate name.
         this.gender = genders[rand.nextInt(genders.length)];  // Randomly picks a gender.
         this.ageGroup = ageGroups[rand.nextInt(ageGroups.length)];  // Randomly picks an age category.
         this.profession = professions[rand.nextInt(professions.length)];  // Randomly picks a profession.
-        this.equipment = Equipment.getRandomItem();  // Calls the Equipment class to select a random item.
+        this.equipment = Equipment.getRandomEquipment();  // Calls the Equipment class to select a random item.
     }
 
     // 🔹 **Method to Get NPC Description**
